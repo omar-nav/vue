@@ -6,28 +6,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>VueJS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
   <script src="vue.js"></script>
 
 </head>
 
 <body>
   <div id="app">
-    <input type="text" v-on:input="changeTitle">
-    <p>{{ title }}</p>
+    <h1 v-once>{{ title }}</h1>
+    <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
   </div>
-
 
 </body>
 <script>
   new Vue({
     el: '#app',
     data: {
-      title: 'Hello World!'
+      title: 'Que pedo?',
+      link: 'http://google.com'
     },
     methods: {
-      changeTitle: function (event) {
-        this.title = event.target.value;
+      sayHello: function () {
+        this.title = 'que onda!';
+        return this.title;
       }
     }
   });
